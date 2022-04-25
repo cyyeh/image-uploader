@@ -5,7 +5,7 @@ window.onload = function() {
   const $LoadingContainer = document.getElementById('loading-container')
   const $UploadingResultContainer = document.getElementById('uploading-result-container')
 
-  const API_ENDPOINT = ''
+  const API_ENDPOINT = 'https://image-uploader-cyyeh.netlify.app/.netlify/functions/upload-image'
 
   // DOM element event listener
   $FileInput.addEventListener('change', function() {
