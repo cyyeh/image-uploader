@@ -86,8 +86,6 @@ body {
   border: 1px dashed #97BEF4;
   box-sizing: border-box;
   border-radius: 12px;
-
-  cursor: pointer;
 }
 
 .drag-drop-background-img {
@@ -222,6 +220,21 @@ body {
 
   background: #2F80ED;
   border-radius: 8px;
+
+  animation-duration: 1.5s;
+  animation-name: slide;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes slide {
+  from {
+    left: 0px;
+  }
+
+  to {
+    left: 239.78px;
+  }
 }
 /*
   Second component
@@ -276,6 +289,8 @@ body {
   
   border-radius: 12px;
   background-color: lightgray;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .uploaded-img-url-container {
   position: absolute;
