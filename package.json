@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "dev": "netlify dev",
+    "dev": "export $(cat .env | xargs) && netlify dev",
     "deploy": "netlify deploy"
   },
   "dependencies": {
+    "aws-sdk": "^2.1120.0",
     "netlify": "^11.0.1"
   }
 }

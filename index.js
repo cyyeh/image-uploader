@@ -6,6 +6,8 @@ window.onload = function() {
   const $LoadingContainer = document.getElementById('loading-container')
   const $UploadingResultContainer = document.getElementById('uploading-result-container')
   const $UploadedImage = document.querySelector('.uploaded-img')
+  const $UploadedImageUrl = document.querySelector('.uploaded-img-url')
+  const $ImgUrlCopyBtn = document.querySelector('.img-url-copy-btn')
 
   const API_ENDPOINT = `${document.location.origin}/.netlify/functions/upload-image`
 
@@ -33,14 +35,16 @@ window.onload = function() {
         method: 'POST',
         body: JSON.stringify({
           "name": photo.name,
-          "base64": base64Str
+          "base64": base64Str,
+          "type": photo.type
         })
       },
     )
       .then(response => response.json())
       .then(function(data) {
         console.log(data)
-        $UploadedImage.style.backgroundImage = `url(${data.base64})`
+        $UploadedImage.style.backgroundImage = `url(${data.url})`
+        $UploadedImageUrl.textContent = data.url
         $LoadingContainer.style.display = 'none'
         $UploadingResultContainer.style.display = 'block'
       })
@@ -75,4 +79,15 @@ window.onload = function() {
     const photo = this.files[0]
     await handlePhotoUpload(photo)
   }, false)
+
+  $ImgUrlCopyBtn.addEventListener('click', function() {
+    navigator.clipboard.writeText($UploadedImageUrl.textContent).then(
+      function() {
+        console.log('copied!')
+      },
+      function() {
+        console.error('something is wrong with copylink btn')
+      }
+    )
+  })
 }
