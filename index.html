@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Uploader</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/devchallenges.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="uploader-container" id="uploader-container">
+        <h3 class="uploader-title">Upload Your image</h3>
+        <p class="uploader-subtitle">File should be Jpeg, Png,...</p>
+        <div class="drag-drop-area">
+          <div class="drag-drop-background-img"></div>
+          <p class="drag-drop-description-text">
+            Drag & Drop your image here
+          </p>
+        </div>
+        <p class="divider-text">Or</p>
+        <div class="choose-file-btn">
+          <input type="file" id="file-input" accept="image/*" hidden />
+          <label for="file-input">Choose a file</label>
+        </div>
+      </div>
+      <div class="loading-container" id="loading-container" style="display: none;">
+        <h3 class="loading-title">Uploading...</h3>
+        <div class="loading-progressbar">
+          <span></span>
+        </div>
+      </div>
+      <div class="uploading-result-container" id="uploading-result-container" style="display: none;">
+        <i class="fa-solid fa-circle-check check"></i>
+        <h3 class="uploading-result-title">
+          Uploaded Successfully!
+        </h3>
+        <div class="uploaded-img"></div>
+        <div class="uploaded-img-url-container">
+          <span class="uploaded-img-url"></span>
+          <div class="img-url-copy-btn">
+            <span>Copy Link</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+  </body>  
+</html>
